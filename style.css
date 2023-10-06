@@ -1,0 +1,37 @@
+#bubble-container {
+  position: relative;
+  width: 15%;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0 auto; 
+  padding: 0 50px; /* Equal to half of bubble width to prevent cutting off */
+}
+
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  background-size: cover;
+  animation: bubbleMovement 5s forwards; 
+}
+
+@keyframes bubbleMovement {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-25vh) translateX(10px);
+  }
+  50% {
+    transform: translateY(-50vh) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-75vh) translateX(10px);
+  }
+  100% {
+    transform: translateY(-110vh) translateX(0); /* Moving it slightly more to ensure it fully vanishes */
+  }
+}

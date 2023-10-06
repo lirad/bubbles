@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Sales Simulation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div id="bubble-container"></div>
+    <script>
+        // Assume this function is called whenever a sale is made.
+        function onSale(productImageUrl) {
+            const bubble = document.createElement("div");
+            bubble.classList.add("bubble");
+            bubble.style.backgroundImage = `url('${productImageUrl}')`;
+
+            // Adjust the random starting position to prevent overflow within the narrower container
+            const maxLeftPosition = document.getElementById("bubble-container").offsetWidth - 100; // container width minus bubble width
+            bubble.style.left = Math.random() * maxLeftPosition + "px";
+
+            document.getElementById("bubble-container").appendChild(bubble);
+
+            bubble.addEventListener('animationend', (event) => {
+                if (event.animationName === 'bubbleMovement') {
+                    bubble.remove();
+                }
+            });
+        }
+
+
+        // Generates a random image URL from Lorem Picsum
+        function getRandomImageUrl() {
+            const randomId = Math.floor(Math.random() * 1000); // Random image id
+            return `https://picsum.photos/id/${randomId}/100/100`; // 100x100 image size
+        }
+
+        // Simulates a sale every random time interval (1 to 5 seconds for this example)
+        function simulateSales() {
+            const productImageUrl = getRandomImageUrl();
+            onSale(productImageUrl);
+
+            // Recursively call simulateSales with a new random timeout
+            setTimeout(simulateSales, Math.random() * 1000); // waits between 1 to 5 seconds
+        }
+
+        // Start simulating sales
+        simulateSales();
+    </script>
+</body>
+
+</html>
