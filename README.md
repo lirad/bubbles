@@ -19,3 +19,13 @@ A dynamic and interactive visualization tool designed to celebrate every sale ma
 ## Getting Started
 
 1. Clone this repository:
+2. Open `index.html` in a browser to view the simulation.
+3. Integrate with your e-commerce platform to trigger the `onSale(productImageUrl)` JavaScript function with a product image URL each time a sale occurs.
+
+## Contribution
+
+Feel free to fork, improve, and submit pull requests. For major changes or feature additions, please open an issue first to discuss.
+
+## License
+
+MIT License. See `LICENSE` for more information.
